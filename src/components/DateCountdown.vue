@@ -18,7 +18,7 @@
 				<span data-seconds>-</span> Seconds,
 			</span>
             <span>
-				<span data-seconds>-</span> Seconds,
+				<span data-milliseconds>-</span> Milliseconds,
 			</span>
         </slot>
     </div>
