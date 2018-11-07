@@ -17,6 +17,9 @@
             <span>
 				<span data-seconds>-</span> Seconds,
 			</span>
+            <span>
+				<span data-seconds>-</span> Seconds,
+			</span>
         </slot>
     </div>
 </template>
@@ -48,7 +51,7 @@
             getTimeDifference(date, now = null) {
                 const startDate = typeof date === 'string' ? new Date(date) : date;
 
-                if (! now) now = Date.now();
+                if (!now) now = Date.now();
 
                 let controlled = false;
                 let precision = 0;
@@ -76,10 +79,20 @@
                 let interval = setInterval(() => {
                     this.remaining = this.getTimeDifference(this.until);
 
-                    this.$el.querySelector('[data-days]').innerText = this.remaining.days;
-                    this.$el.querySelector('[data-hours]').innerText = this.remaining.hours;
-                    this.$el.querySelector('[data-minutes]').innerText = this.remaining.minutes;
-                    this.$el.querySelector('[data-seconds]').innerText = this.remaining.seconds;
+                    if (this.$el.querySelector('[data-days]'))
+                        this.$el.querySelector('[data-days]').innerText = this.remaining.days;
+
+                    if (this.$el.querySelector('[data-hours]'))
+                        this.$el.querySelector('[data-hours]').innerText = this.remaining.hours;
+
+                    if (this.$el.querySelector('[data-minutes]'))
+                        this.$el.querySelector('[data-minutes]').innerText = this.remaining.minutes;
+
+                    if (this.$el.querySelector('[data-seconds]'))
+                        this.$el.querySelector('[data-seconds]').innerText = this.remaining.seconds;
+
+                    if (this.$el.querySelector('[data-milliseconds]'))
+                        this.$el.querySelector('[data-milliseconds]').innerText = this.remaining.milliseconds;
 
                 }, 1000);
 

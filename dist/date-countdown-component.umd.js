@@ -8955,18 +8955,21 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 /* harmony default export */ var vue_custom_element_esm = (install);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"12788a18-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateCountdown.vue?vue&type=template&id=affdbdcc&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.remaining)?_c('div',[(_vm.finished)?_vm._t("finished",[_c('div',{domProps:{"textContent":_vm._s(_vm.expiredText)}})]):_vm._e(),(!_vm.finished)?_vm._t("main",[_vm._m(0),_vm._m(1),_vm._m(2),_vm._m(3)]):_vm._e()],2):_vm._e()}
-var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-days":""}},[_vm._v("-")]),_vm._v(" Days,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-hours":""}},[_vm._v("-")]),_vm._v(" Hours,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-minutes":""}},[_vm._v("-")]),_vm._v(" Minutes,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-seconds":""}},[_vm._v("-")]),_vm._v(" Seconds,\n\t\t\t")])}]
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"12788a18-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateCountdown.vue?vue&type=template&id=00dbf60a&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.remaining)?_c('div',[(_vm.finished)?_vm._t("finished",[_c('div',{domProps:{"textContent":_vm._s(_vm.expiredText)}})]):_vm._e(),(!_vm.finished)?_vm._t("main",[_vm._m(0),_vm._m(1),_vm._m(2),_vm._m(3),_vm._m(4)]):_vm._e()],2):_vm._e()}
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-days":""}},[_vm._v("-")]),_vm._v(" Days,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-hours":""}},[_vm._v("-")]),_vm._v(" Hours,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-minutes":""}},[_vm._v("-")]),_vm._v(" Minutes,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-seconds":""}},[_vm._v("-")]),_vm._v(" Seconds,\n\t\t\t")])},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('span',[_c('span',{attrs:{"data-seconds":""}},[_vm._v("-")]),_vm._v(" Seconds,\n\t\t\t")])}]
 
 
-// CONCATENATED MODULE: ./src/components/DateCountdown.vue?vue&type=template&id=affdbdcc&
+// CONCATENATED MODULE: ./src/components/DateCountdown.vue?vue&type=template&id=00dbf60a&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.number.constructor.js
 var es6_number_constructor = __webpack_require__("c5f6");
 
 // CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--12-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/DateCountdown.vue?vue&type=script&lang=js&
 
+//
+//
+//
 //
 //
 //
@@ -9037,10 +9040,11 @@ var es6_number_constructor = __webpack_require__("c5f6");
 
       var interval = setInterval(function () {
         _this.remaining = _this.getTimeDifference(_this.until);
-        _this.$el.querySelector('[data-days]').innerText = _this.remaining.days;
-        _this.$el.querySelector('[data-hours]').innerText = _this.remaining.hours;
-        _this.$el.querySelector('[data-minutes]').innerText = _this.remaining.minutes;
-        _this.$el.querySelector('[data-seconds]').innerText = _this.remaining.seconds;
+        if (_this.$el.querySelector('[data-days]')) _this.$el.querySelector('[data-days]').innerText = _this.remaining.days;
+        if (_this.$el.querySelector('[data-hours]')) _this.$el.querySelector('[data-hours]').innerText = _this.remaining.hours;
+        if (_this.$el.querySelector('[data-minutes]')) _this.$el.querySelector('[data-minutes]').innerText = _this.remaining.minutes;
+        if (_this.$el.querySelector('[data-seconds]')) _this.$el.querySelector('[data-seconds]').innerText = _this.remaining.seconds;
+        if (_this.$el.querySelector('[data-milliseconds]')) _this.$el.querySelector('[data-milliseconds]').innerText = _this.remaining.milliseconds;
       }, 1000);
       this.$on('finished', function () {
         return clearInterval(interval);

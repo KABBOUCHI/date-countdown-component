@@ -32,6 +32,10 @@ yarn run build
 			<span>
 				<span data-seconds></span> Seconds
 			</span>
+			<span>
+            <span data-milliseconds></span> 
+                Milliseconds
+            </span>
 		</div>
 	</template>
 </date-countdown>
