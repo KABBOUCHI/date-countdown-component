@@ -12,6 +12,11 @@ yarn run build
 
 ### Usage
 
+#### Default
+```html
+<date-countdown until="2018-11-08"></date-countdown>
+```
+#### Custom template
 ```html
 <date-countdown until="2018-11-08">
 	<template slot id="finished">
@@ -30,12 +35,11 @@ yarn run build
 				<span data-minutes></span> Minutes,
 			</span>
 			<span>
-				<span data-seconds></span> Seconds
+				<span data-seconds></span> Seconds,
 			</span>
 			<span>
-            <span data-milliseconds></span> 
-                Milliseconds
-            </span>
+				<span data-milliseconds></span> Milliseconds
+			</span>
 		</div>
 	</template>
 </date-countdown>

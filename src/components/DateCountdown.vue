@@ -6,19 +6,16 @@
         </slot>
         <slot v-if="!finished" name="main">
          	<span>
-				<span data-days>-</span> Days,
+				<span data-days>0</span> Days,
 			</span>
             <span>
-				<span data-hours>-</span> Hours,
+				<span data-hours>0</span> Hours,
 			</span>
             <span>
-				<span data-minutes>-</span> Minutes,
+				<span data-minutes>0</span> Minutes,
 			</span>
             <span>
-				<span data-seconds>-</span> Seconds,
-			</span>
-            <span>
-				<span data-milliseconds>-</span> Milliseconds,
+				<span data-seconds>0</span> Seconds
 			</span>
         </slot>
     </div>
