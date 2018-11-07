@@ -1,18 +1,27 @@
 {
   "name": "date-countdown-component",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build --target lib --name date-countdown-component ./src//main.js"
   },
+  "files": [
+    "dist/*",
+    "src/*",
+    "public/*",
+    "*.json",
+    "*.js"
+  ],
+  "main": "./dist/date-countdown-component.common.js",
   "dependencies": {
     "vue": "^2.5.17"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-service": "^3.1.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "vue-custom-element": "^3.2.6",
+    "document-register-element": "^1.13.1"
   },
   "postcss": {
     "plugins": {

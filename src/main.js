@@ -1,8 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
+import 'document-register-element/build/document-register-element';
+import vueCustomElement from 'vue-custom-element'
+import DateCountdown from './components/DateCountdown.vue'
 
-Vue.config.productionTip = false
+Vue.use(vueCustomElement);
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+Vue.customElement('date-countdown', DateCountdown);
+
