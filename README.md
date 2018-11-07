@@ -5,25 +5,34 @@
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
 ### Compiles and minifies for production
 ```
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
+### Usage
 
-### Lints and fixes files
-```
-yarn run lint
-```
+```html
+<date-countdown until="2018-11-08">
+	<template slot id="finished">
+		<h4>Now Expired</h4>
+	</template>
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+	<template slot id="main">
+		<div>
+			<span>
+				<span data-days></span> Days,
+			</span>
+			<span>
+				<span data-hours></span> Hours,
+			</span>
+			<span>
+				<span data-minutes></span> Minutes,
+			</span>
+			<span>
+				<span data-seconds></span> Seconds
+			</span>
+		</div>
+	</template>
+</date-countdown>
+```

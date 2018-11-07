@@ -23,7 +23,6 @@
 
 <script>
 
-import moment from 'moment'
     export default {
         props: {
             until: String,
@@ -31,45 +30,51 @@ import moment from 'moment'
         },
         data() {
             return {
-                now: new Date(),
                 remaining: null
             };
         },
-        created(){
-            this.now = new Date();
-            let r = window.moment.duration(Date.parse(this.until) - this.now);
-            if (r <= 0) this.$emit('finished');
-
-            this.remaining = {
-                total: r,
-                days: r.days(),
-                hours: r.hours(),
-                minutes: r.minutes(),
-                seconds: r.seconds()
-            };
+        created() {
+            this.remaining = this.getTimeDifference(this.until);
         },
         mounted() {
             this.refreshEverySecond();
         },
         computed: {
             finished() {
-                return this.remaining && this.remaining.total <= 0;
+                return this.remaining && this.remaining.completed;
             }
         },
         methods: {
+            getTimeDifference(date, now = null) {
+                const startDate = typeof date === 'string' ? new Date(date) : date;
+
+                if (! now) now = Date.now();
+
+                let controlled = false;
+                let precision = 0;
+
+                const total = parseInt(
+                    (Math.max(0, controlled ? startDate : startDate - now) / 1000).toFixed(
+                        Math.max(0, Math.min(20, precision))
+                    ) * 1000,
+                    10
+                );
+
+                const seconds = total / 1000;
+
+                return {
+                    total,
+                    days: Math.floor(seconds / (3600 * 24)),
+                    hours: Math.floor((seconds / 3600) % 24),
+                    minutes: Math.floor((seconds / 60) % 60),
+                    seconds: Math.floor(seconds % 60),
+                    milliseconds: Number(((seconds % 1) * 1000).toFixed()),
+                    completed: total <= 0,
+                };
+            },
             refreshEverySecond() {
                 let interval = setInterval(() => {
-                    this.now = new Date();
-                    let r = window.moment.duration(Date.parse(this.until) - this.now);
-                    if (r <= 0) this.$emit('finished');
-
-                    this.remaining = {
-                        total: r,
-                        days: r.days(),
-                        hours: r.hours(),
-                        minutes: r.minutes(),
-                        seconds: r.seconds()
-                    };
+                    this.remaining = this.getTimeDifference(this.until);
 
                     this.$el.querySelector('[data-days]').innerText = this.remaining.days;
                     this.$el.querySelector('[data-hours]').innerText = this.remaining.hours;
