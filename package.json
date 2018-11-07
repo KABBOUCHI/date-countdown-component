@@ -14,6 +14,7 @@
   ],
   "main": "./dist/date-countdown-component.common.js",
   "dependencies": {
+    "moment": "^2.22.2",
     "vue": "^2.5.17"
   },
   "devDependencies": {
